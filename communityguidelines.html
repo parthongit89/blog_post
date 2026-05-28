@@ -1,0 +1,314 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Capriola&amp;family=SN+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#0058be",
+                    "surface-container-high": "#dce9ff",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-secondary-fixed": "#001a42",
+                    "background": "#f8f9ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary": "#000000",
+                    "on-secondary-fixed-variant": "#004395",
+                    "tertiary-container": "#191c1e",
+                    "primary-fixed": "#dae2fd",
+                    "on-tertiary-container": "#818486",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "primary-container": "#131b2e",
+                    "outline-variant": "#c6c6cd",
+                    "surface-variant": "#d3e4fe",
+                    "surface-container": "#e5eeff",
+                    "surface-container-highest": "#d3e4fe",
+                    "secondary-container": "#2170e4",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface": "#f8f9ff",
+                    "inverse-surface": "#213145",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#45464d",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#7c839b",
+                    "surface-container-low": "#eff4ff",
+                    "outline": "#76777d",
+                    "on-background": "#0b1c30",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-surface": "#0b1c30",
+                    "tertiary-fixed": "#e0e3e5",
+                    "surface-bright": "#f8f9ff",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface-dim": "#cbdbf5",
+                    "inverse-primary": "#bec6e0",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "primary": "#000000",
+                    "on-secondary-container": "#fefcff",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#131b2e",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "surface-tint": "#565e74"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "max-width": "1280px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Capriola"],
+                    "body-sm": ["SN Pro"],
+                    "label-sm": ["SN Pro"],
+                    "headline-lg": ["Capriola"],
+                    "body-md": ["SN Pro"],
+                    "headline-md": ["Capriola"],
+                    "body-lg": ["SN Pro"],
+                    "headline-xl-mobile": ["Capriola"],
+                    "label-md": ["SN Pro"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                    "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                    "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "500" }],
+                    "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                    "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                    "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "400" }],
+                    "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                    "headline-xl-mobile": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                    "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'SN Pro', sans-serif;
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+        .content-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface selection:bg-surface-container-high selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-surface dark:bg-surface-container-low border-b border-outline-variant dark:border-outline z-50">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-max-width mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-headline-lg text-headline-lg font-normal tracking-tight text-primary dark:text-primary-fixed cursor-pointer active:scale-95 duration-150" href="/">Stillness</a>
+<div class="hidden md:flex gap-6">
+
+
+
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline scale-90">search</span>
+
+</div>
+
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="max-w-3xl mx-auto">
+<!-- Header Section -->
+<header class="mb-16 border-b border-outline-variant pb-8">
+<h1 class="font-headline-xl text-headline-xl mb-4 text-primary">Stillness Community Guidelines</h1>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Last Updated: May 2026</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="font-label-sm text-label-sm">Legal &amp; Ethics</span>
+</div>
+</header>
+<!-- Introduction -->
+<section class="mb-16">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                    Welcome to the Stillness community! Our mission is to create a thoughtful, respectful, and inspiring space for writers and readers to share ideas, knowledge, and perspectives. To maintain a high-quality environment where everyone feels safe to express themselves, all users are required to adhere to the following guidelines. By creating an account or publishing content on Stillness, you agree to these rules.
+                </p>
+</section>
+<!-- Guideline Sections -->
+<div class="space-y-16">
+<!-- Section 1 -->
+<article class="group">
+<div class="flex items-start gap-6">
+<span class="font-headline-md text-headline-md text-outline-variant opacity-50 group-hover:text-secondary transition-colors duration-300" style="transition: transform 0.3s;">01</span>
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md text-primary">Respect and Civility</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                We believe in the power of discourse. However, this must always be grounded in mutual respect. We have <span class="text-on-surface font-semibold">Zero Tolerance for Hate Speech</span>, harassment, or bullying of any kind. 
+                            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                Engage in <span class="text-on-surface font-semibold">Constructive Discussion</span>. Critique the idea, not the person. Any comments or essays found to be intentionally inflammatory or targeting specific individuals/groups will be removed immediately.
+                            </p>
+</div>
+</div>
+</article>
+<!-- Section 2 -->
+<article class="group">
+<div class="flex items-start gap-6">
+<span class="font-headline-md text-headline-md text-outline-variant opacity-50 group-hover:text-secondary transition-colors duration-300" style="transition: transform 0.3s;">02</span>
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md text-primary">Content Authenticity and Integrity</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<span class="text-on-surface font-semibold">No Plagiarism:</span> Your work must be your own. Properly attribute all quotes, sources, and inspiration. Lifting content without permission or attribution is a violation of our core values.
+                            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<span class="text-on-surface font-semibold">Avoid Misinformation:</span> While we encourage diverse perspectives, we do not allow the spread of demonstrably false health, scientific, or civic information that could cause real-world harm.
+                            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<span class="text-on-surface font-semibold">Responsible AI Use:</span> If your content is significantly generated by AI, it must be clearly disclosed to the reader. Authenticity is what our community values most.
+                            </p>
+</div>
+</div>
+</article>
+<!-- Section 3 -->
+<article class="group">
+<div class="flex items-start gap-6">
+<span class="font-headline-md text-headline-md text-outline-variant opacity-50 group-hover:text-secondary transition-colors duration-300" style="transition: transform 0.3s;">03</span>
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md text-primary">Safety and Legal Compliance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                We comply with all local and international laws. Do not use Stillness for <span class="text-on-surface font-semibold">Illegal Activities</span> or to promote self-harm, violence, or illegal substances.
+                            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<span class="text-on-surface font-semibold">Protect Personal Privacy (Doxing):</span> Do not share private information of others (addresses, phone numbers, private emails) without their explicit consent.
+                            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<span class="text-on-surface font-semibold">Keep it Safe for Work (NSFW):</span> Stillness is an editorial space intended for a broad professional and academic audience. Excessive graphic violence or sexually explicit content is prohibited.
+                            </p>
+</div>
+</div>
+</article>
+<!-- Section 4 -->
+<article class="group">
+<div class="flex items-start gap-6">
+<span class="font-headline-md text-headline-md text-outline-variant opacity-50 group-hover:text-secondary transition-colors duration-300" style="transition: transform 0.3s;">04</span>
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md text-primary">Spam and Commercial Promotion</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                Stillness is a place for ideas, not a marketplace for junk. <span class="text-on-surface font-semibold">No Link Spamming</span> or repetitive commercial posts. While you may link to your personal projects or services if relevant to the content, the primary focus must be on the quality of the essay.
+                            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                We value <span class="text-on-surface font-semibold">Authentic Engagement</span>. Use of bots, engagement pods, or "follow-for-follow" schemes to manipulate metrics is strictly forbidden.
+                            </p>
+</div>
+</div>
+</article>
+<!-- Section 5 -->
+<article class="group">
+<div class="flex items-start gap-6">
+<span class="font-headline-md text-headline-md text-outline-variant opacity-50 group-hover:text-secondary transition-colors duration-300" style="transition: transform 0.3s;">05</span>
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md text-primary">Enforcement and Consequences</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                We take these guidelines seriously. Violations may result in one or more of the following actions at our sole discretion:
+                            </p>
+<ul class="list-none space-y-4 pt-2">
+<li class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-error scale-75">warning</span> Issue formal warning to the account holder.
+                                </li>
+<li class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-error scale-75">visibility_off</span> Temporary or permanent unpublishing of violating content.
+                                </li>
+<li class="flex items-center gap-3 font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-error scale-75">block</span> Immediate suspension or termination of user accounts.
+                                </li>
+</ul>
+</div>
+</div>
+</article>
+</div>
+<!-- Closing Section -->
+<footer class="mt-24 pt-12 border-t border-outline-variant text-center">
+<div class="inline-block p-1 bg-surface-container-high rounded-full mb-8">
+<div class="bg-surface px-8 py-8 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4 block" style="font-variation-settings: &quot;FILL&quot; 1;">favorite</span>
+<p class="font-body-lg text-body-lg text-primary max-w-sm mx-auto leading-relaxed">
+                            Thank you for being a part of Stillness and helping us maintain a thoughtful, creative, and welcoming community!
+                        </p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Have questions or need to report a violation?</p>
+<a class="px-8 py-3 bg-tertiary text-on-tertiary rounded-full font-label-md text-label-md hover:bg-secondary transition-all active:scale-95 duration-150" href="{{ url_for('contact') }}">
+                        Contact Support
+                    </a>
+</div>
+</footer>
+</div>
+</main>
+<!-- Global Footer -->
+<footer class="bg-surface dark:bg-surface-container-low border-t border-outline-variant dark:border-outline w-full mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-margin-desktop max-w-max-width mx-auto gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Stillness</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-tertiary-container max-w-xs text-center md:text-left">
+                    Elevating the digital discourse through purposeful editorial design and silent innovation.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed underline decoration-1 underline-offset-4 transition-all duration-300" href="{{ url_for('privacy') }}">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed underline decoration-1 underline-offset-4 transition-all duration-300" href="{{ url_for('terms') }}">Terms of Service</a>
+
+
+</div>
+<div class="flex flex-col items-center md:items-end gap-2">
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container">© 2026 Stillness Editorial. All rights reserved.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">public</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors" href="mailto:sonavaneparth388@gmail.com">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for scrolling
+        document.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm', 'bg-opacity-95', 'backdrop-blur-md');
+            } else {
+                nav.classList.remove('shadow-sm', 'bg-opacity-95', 'backdrop-blur-md');
+            }
+        });
+
+        // Hover effect for guideline numbers
+        const articles = document.querySelectorAll('article');
+        articles.forEach(article => {
+            article.addEventListener('mouseenter', () => {
+                article.querySelector('span').style.transform = 'translateX(5px)';
+            });
+            article.addEventListener('mouseleave', () => {
+                article.querySelector('span').style.transform = 'translateX(0)';
+            });
+            article.querySelector('span').style.transition = 'transform 0.3s ease';
+        });
+    </script>
+
+
+{% endblock content %}

@@ -1,0 +1,286 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Capriola (for headlines) and SN Pro is handled via system/standard serif-sans fallback if not available, but config specifies it -->
+<link href="https://fonts.googleapis.com/css2?family=Capriola&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f8f9ff",
+                    "surface-tint": "#565e74",
+                    "surface-container-low": "#eff4ff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-secondary-fixed": "#001a42",
+                    "on-tertiary-fixed": "#191c1e",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "on-tertiary-container": "#818486",
+                    "tertiary": "#000000",
+                    "secondary-container": "#2170e4",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "on-surface": "#0b1c30",
+                    "surface-container": "#e5eeff",
+                    "surface-variant": "#d3e4fe",
+                    "surface": "#f8f9ff",
+                    "surface-container-high": "#dce9ff",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-container-highest": "#d3e4fe",
+                    "outline-variant": "#c6c6cd",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#45464d",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "background": "#f8f9ff",
+                    "on-primary-fixed": "#131b2e",
+                    "tertiary-fixed": "#e0e3e5",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-primary-container": "#7c839b",
+                    "tertiary-container": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#dae2fd",
+                    "primary": "#000000",
+                    "surface-dim": "#cbdbf5",
+                    "on-secondary-container": "#fefcff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#004395",
+                    "inverse-primary": "#bec6e0",
+                    "inverse-surface": "#213145",
+                    "secondary": "#0058be",
+                    "on-background": "#0b1c30",
+                    "outline": "#76777d",
+                    "primary-container": "#131b2e",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "max-width": "1280px",
+                    "margin-mobile": "20px",
+                    "unit": "4px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "label-sm": ["SN Pro", "sans-serif"],
+                    "headline-md": ["Capriola", "sans-serif"],
+                    "headline-lg": ["Capriola", "sans-serif"],
+                    "label-md": ["SN Pro", "sans-serif"],
+                    "headline-xl-mobile": ["Capriola", "sans-serif"],
+                    "body-sm": ["SN Pro", "sans-serif"],
+                    "headline-xl": ["Capriola", "sans-serif"],
+                    "body-lg": ["SN Pro", "sans-serif"],
+                    "body-md": ["SN Pro", "sans-serif"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        .content-canvas {
+            min-height: calc(100vh - 80px - 160px);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full bg-surface dark:bg-surface-container-low border-b border-outline-variant dark:border-outline z-50">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<!-- Brand Identity -->
+<div class="font-headline-lg text-headline-lg font-normal tracking-tight text-primary dark:text-primary-fixed cursor-pointer active:scale-95 duration-150 transition-all">
+                Stillness
+            </div>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-gap-8 gap-8">
+
+
+
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-6">
+<div class="hidden sm:flex items-center text-on-surface-variant cursor-pointer hover:opacity-80 transition-opacity">
+
+</div>
+
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto content-canvas">
+<article class="flex flex-col gap-12">
+<!-- Header Section -->
+<header class="flex flex-col gap-4 border-b border-outline-variant pb-8">
+<h1 class="font-headline-xl text-headline-xl text-primary leading-tight">Privacy Policy for Stillness</h1>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Last Updated: May 2026</span>
+</div>
+</header>
+<!-- Introduction -->
+<section class="editorial-body">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-8">
+                    Welcome to Stillness. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our website.
+                </p>
+</section>
+<!-- Sections Grid-ish / List -->
+<div class="flex flex-col gap-16">
+<!-- Section 1 -->
+<section class="flex flex-col md:flex-row gap-6 md:gap-12">
+<div class="md:w-1/3">
+<h2 class="font-headline-md text-headline-md text-primary sticky top-24">1. Information We Collect</h2>
+</div>
+<div class="md:w-2/3 flex flex-col gap-6 font-body-md text-body-md text-on-surface-variant">
+<div class="p-6 bg-surface-container-lowest border border-outline-variant rounded-lg">
+<strong class="block text-on-surface mb-2 font-label-md text-label-md uppercase tracking-wider">Account Data</strong>
+                            When you register, we collect the personal details you provide, such as your username, email address, and password (which is securely encrypted).
+                        </div>
+<div class="p-6 bg-surface-container-lowest border border-outline-variant rounded-lg">
+<strong class="block text-on-surface mb-2 font-label-md text-label-md uppercase tracking-wider">User-Generated Content</strong>
+                            We store the articles, blogs, text, and images you explicitly upload and publish on the platform.
+                        </div>
+<div class="p-6 bg-surface-container-lowest border border-outline-variant rounded-lg">
+<strong class="block text-on-surface mb-2 font-label-md text-label-md uppercase tracking-wider">Cookies &amp; Local Storage</strong>
+                            We use local storage and basic cookies to keep you securely logged into your session so you don't have to re-enter your password on every page.
+                        </div>
+</div>
+</section>
+<!-- Section 2 -->
+<section class="flex flex-col md:flex-row gap-6 md:gap-12">
+<div class="md:w-1/3">
+<h2 class="font-headline-md text-headline-md text-primary sticky top-24">2. How We Use Your Information</h2>
+</div>
+<div class="md:w-2/3">
+<ul class="flex flex-col gap-4 font-body-md text-body-md text-on-surface-variant list-none">
+<li class="flex items-start gap-4 pb-4 border-b border-outline-variant">
+<span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
+<span class="">To maintain and manage your account and user profile.</span>
+</li>
+<li class="flex items-start gap-4 pb-4 border-b border-outline-variant">
+<span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
+<span class="">To display your author name alongside the articles you publish.</span>
+</li>
+<li class="flex items-start gap-4 pb-4">
+<span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
+<span class="">To ensure the security and proper functioning of our platform.</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Section 3 -->
+<section class="flex flex-col md:flex-row gap-6 md:gap-12">
+<div class="md:w-1/3">
+<h2 class="font-headline-md text-headline-md text-primary sticky top-24">3. Data Storage and Security</h2>
+</div>
+<div class="md:w-2/3 bg-surface-container-low p-8 rounded-xl border border-secondary/10">
+<p class="font-body-md text-body-md text-on-surface-variant italic leading-relaxed">
+                            We implement standard security measures to protect your personal data. However, as Stillness is currently a trial/experimental blogging application, users are advised not to use sensitive or high-security passwords shared with other critical real-world accounts.
+                        </p>
+</div>
+</section>
+<!-- Section 4 -->
+<section class="flex flex-col md:flex-row gap-6 md:gap-12">
+<div class="md:w-1/3">
+<h2 class="font-headline-md text-headline-md text-primary sticky top-24">4. Third-Party Services</h2>
+</div>
+<div class="md:w-2/3">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            We do not sell, trade, or share your personal information with outside parties.
+                        </p>
+</div>
+</section>
+<!-- Section 5 -->
+<section class="flex flex-col md:flex-row gap-6 md:gap-12">
+<div class="md:w-1/3">
+<h2 class="font-headline-md text-headline-md text-primary sticky top-24">5. Your Rights</h2>
+</div>
+<div class="md:w-2/3">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            You have the right to view, update, or delete your account information and your published articles at any time through your profile settings.
+                        </p>
+</div>
+</section>
+</div>
+<!-- Interaction Buttons -->
+<footer class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6 pt-12 border-t border-outline-variant">
+<a class="w-full sm:w-auto bg-primary text-on-primary px-12 py-4 rounded-full font-label-md text-label-md uppercase tracking-widest hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-primary/5 text-center flex items-center justify-center" href="{{ url_for('home') }}">
+    Accept
+</a>
+
+<a class="w-full sm:w-auto bg-surface-container-lowest text-primary border border-outline-variant px-12 py-4 rounded-full font-label-md text-label-md uppercase tracking-widest hover:bg-surface-variant transition-all active:scale-95 text-center flex items-center justify-center" href="{{ url_for('contact') }}">
+    Feedback
+</a>
+</footer>
+</article>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface dark:bg-surface-container-low border-t border-outline-variant dark:border-outline">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="flex flex-col gap-4 mb-8 md:mb-0">
+<div class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">
+                    Stillness
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-tertiary-container">
+                    © 2026 Stillness Editorial. All rights reserved.
+                </p>
+</div>
+<nav class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm text-primary dark:text-primary-fixed underline decoration-1 underline-offset-4 transition-all duration-300" href="{{ url_for('privacy') }}">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed transition-all duration-300" href="{{ url_for('terms') }}">Terms of Service</a>
+
+</nav>
+</div>
+</footer>
+<script>
+        // Micro-interactions for header scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('bg-white/90', 'backdrop-blur-md');
+            } else {
+                header.classList.remove('bg-white/90', 'backdrop-blur-md');
+            }
+        });
+
+        // Simple button active state visual
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+
+
+{% endblock content %}

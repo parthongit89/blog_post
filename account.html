@@ -1,0 +1,219 @@
+{% extends "layout.html" %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Capriola&amp;family=SN+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f8f9ff", "on-primary": "#ffffff", "on-secondary-fixed": "#001a42",
+                    "inverse-primary": "#bec6e0", "outline-variant": "#c6c6cd", "on-surface": "#0b1c30",
+                    "surface-container-high": "#dce9ff", "on-tertiary": "#ffffff", "inverse-surface": "#213145",
+                    "error-container": "#ffdad6", "surface": "#f8f9ff", "secondary-container": "#2170e4",
+                    "surface-tint": "#565e74", "on-secondary-container": "#fefcff", "on-surface-variant": "#45464d",
+                    "error": "#ba1a1a", "tertiary": "#000000", "surface-container-low": "#eff4ff",
+                    "on-primary-container": "#7c839b", "surface-variant": "#d3e4fe", "on-secondary-fixed-variant": "#004395",
+                    "secondary-fixed-dim": "#adc6ff", "primary-fixed": "#dae2fd", "on-primary-fixed": "#131b2e",
+                    "surface-container": "#e5eeff", "on-error-container": "#93000a", "surface-container-highest": "#d3e4fe",
+                    "surface-container-lowest": "#ffffff", "on-tertiary-fixed": "#191c1e", "tertiary-container": "#191c1e",
+                    "primary-fixed-dim": "#bec6e0", "on-primary-fixed-variant": "#3f465c", "surface-dim": "#cbdbf5",
+                    "tertiary-fixed-dim": "#c4c7c9", "primary": "#000000", "on-tertiary-container": "#818486",
+                    "on-tertiary-fixed-variant": "#444749", "secondary-fixed": "#d8e2ff", "tertiary-fixed": "#e0e3e5",
+                    "on-secondary": "#ffffff", "on-background": "#0b1c30", "on-error": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff", "outline": "#76777d", "primary-container": "#131b2e",
+                    "background": "#f8f9ff", "secondary": "#0058be"
+            },
+            "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+            "spacing": { "gutter": "24px", "unit": "4px", "max-width": "1280px", "margin-mobile": "20px", "margin-desktop": "64px" },
+            "fontFamily": {
+                    "body-md": ["SN Pro"], "label-sm": ["SN Pro"], "headline-lg": ["Capriola"], "headline-xl-mobile": ["Capriola"],
+                    "body-sm": ["SN Pro"], "headline-md": ["Capriola"], "headline-xl": ["Capriola"], "body-lg": ["SN Pro"], "label-md": ["SN Pro"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}], "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "headline-xl-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}], "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}], "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { background-color: #f8f9ff; }
+        input:focus, textarea:focus {
+            outline: none !important;
+            border-color: #000000 !important;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+        }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-on-surface">
+
+<header class="w-full top-0 sticky bg-surface dark:bg-background border-b border-outline-variant dark:border-outline z-50">
+<nav class="flex justify-between items-center max-w-max-width mx-auto px-margin-desktop py-6">
+<div class="font-headline-md text-headline-md text-primary dark:text-on-background tracking-tighter">
+    <a href="{{ url_for('home') }}" class="hover:text-primary transition-colors">Stillness</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary transition-colors font-body-md text-body-md" href="{{ url_for('home') }}">Home</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary transition-colors font-body-md text-body-md" href="{{ url_for('categories') }}">Categories</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary transition-colors font-body-md text-body-md" href="{{ url_for('about') }}">About</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary transition-colors font-body-md text-body-md" href="{{ url_for('contact') }}">Contact</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary transition-colors font-body-md text-body-md" href="{{ url_for('new_post') }}">Post</a>
+
+<a class="text-primary border-b border-primary pb-1 font-label-md text-label-md" href="{{ url_for('account') }}">Profile</a>
+<a class="text-error font-body-md text-body-md tracking-wider uppercase hover:opacity-80 transition-opacity flex items-center gap-1 cursor-pointer" href="{{ url_for('logout') }}">
+    <span class="material-symbols-outlined text-[18px]"></span>Logout
+</a>
+</div>
+</nav>
+</header>
+
+<main class="flex-grow max-w-3xl mx-auto w-full px-margin-mobile md:px-margin-desktop py-16 fade-in">
+<header class="mb-12">
+<h1 class="font-headline-xl text-headline-xl mb-2 text-primary">Interface Panel</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Curate your unique digital presence within the Stillness ecosystem.</p>
+</header>
+
+<form method="POST" action="" enctype="multipart/form-data" class="space-y-12">
+    {{ form.hidden_tag() }}
+    
+    <div class="p-8 bg-surface-container-lowest border border-outline-variant rounded-lg space-y-8">
+        
+        <div class="flex flex-col md:flex-row items-center gap-8 pb-6 border-b border-outline-variant/30">
+            <div class="relative group">
+                <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-surface-bright shadow-sm">
+                    {% if current_user.image_file == 'default.jpg' or not current_user.image_file %}
+                        <img id="profileImageDisplay" class="w-full h-full object-cover" src="https://i.supaimg.com/d0495ff2-7a2f-426d-a287-7b3b2861a5ee/7d15d7d5-b797-43e5-b7cc-98b57f9a0f00.png" alt="Profile image">
+                    {% else %}
+                        <img id="profileImageDisplay" class="w-full h-full object-cover" src="{{ url_for('static', filename='profile_pics/' + current_user.image_file) }}" alt="Profile image">
+                    {% endif %}
+                </div>
+                {{ form.picture(class="hidden", id="desktopImageUploader", onchange="previewImage(this)") }}
+                <button type="button" onclick="triggerDesktopSearch()" class="absolute bottom-0 right-0 bg-primary text-on-primary p-2 rounded-full shadow-lg hover:opacity-90 transition-opacity">
+                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                </button>
+            </div>
+            <div class="text-center md:text-left">
+                <h3 class="font-headline-md text-headline-md mb-1">{{ current_user.username }}</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Add profile image just click upload new</p>
+                <div class="flex gap-3 justify-center md:justify-start">
+                    <button type="button" onclick="triggerDesktopSearch()" class="px-6 py-2 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:opacity-90 transition-all">Upload New</button>
+                    <button type="button" id="removeImgBtn" class="px-6 py-2 border border-outline-variant font-label-md text-label-md rounded-lg hover:bg-surface-container-low transition-all">Remove</button>
+                </div>
+                {% if form.picture.errors %}
+                    <div class="text-error text-body-sm mt-2">
+                        {% for error in form.picture.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="space-y-8 pt-2">
+            <div class="group">
+                {{ form.username.label(class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-1 block") }}
+                {% if form.username.errors %}
+                    {{ form.username(class="w-full bg-transparent border-0 border-b border-error py-4 font-body-lg text-body-lg focus:ring-0 transition-all") }}
+                    <div class="text-error text-body-sm mt-1">
+                        {% for error in form.username.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class="w-full bg-transparent border-0 border-b border-outline-variant py-4 font-body-lg text-body-lg focus:ring-0 transition-all") }}
+                {% endif %}
+            </div>
+
+            <div class="group">
+                {{ form.email.label(class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-1 block") }}
+                {% if form.email.errors %}
+                    {{ form.email(class="w-full bg-transparent border-0 border-b border-error py-4 font-body-lg text-body-lg focus:ring-0 transition-all") }}
+                    <div class="text-error text-body-sm mt-1">
+                        {% for error in form.email.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="w-full bg-transparent border-0 border-b border-outline-variant py-4 font-body-lg text-body-lg focus:ring-0 transition-all") }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-4">
+        <div class="flex justify-between items-end mb-6">
+            <div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Social profiles or personal portfolios.</p>
+            </div>
+        </div>
+        <div class="space-y-3">
+            <div class="flex items-center gap-4 p-4 border border-outline-variant rounded-lg bg-surface-container-lowest">
+                <span class="material-symbols-outlined text-on-surface-variant">link</span>
+                <input class="flex-grow bg-transparent border-none p-0 focus:ring-0 font-body-md text-on-surface-variant" type="text" readonly value="{{ current_user.username.lower() }}.design">
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+        {{ form.submit(class="flex-1 sm:flex-none px-12 py-4 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:opacity-90 transition-all shadow-sm active:scale-[0.98] cursor-pointer") }}
+    </div>
+</form>
+</main>
+
+<footer class="w-full mt-auto bg-surface-container-lowest dark:bg-tertiary-container border-t border-outline-variant dark:border-outline">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-max-width mx-auto px-margin-desktop py-12">
+<div class="font-headline-md text-headline-md text-primary dark:text-on-background mb-6 md:mb-0">
+    <a href="{{ url_for('home') }}" class="hover:text-primary transition-colors">
+    Stillness</a>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-8">
+<div class="flex gap-6 font-body-sm text-body-sm text-on-surface-variant dark:text-on-tertiary-container">
+<a class="hover:text-primary underline decoration-1 underline-offset-4 transition-all duration-200" href="{{ url_for('privacy') }}">Privacy Policy</a>
+<a class="hover:text-primary underline decoration-1 underline-offset-4 transition-all duration-200" href="{{ url_for('terms') }}">Terms of Service</a>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface dark:text-on-tertiary-fixed">© 2026 Stillness. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+<script>
+        function triggerDesktopSearch() {
+            document.getElementById('desktopImageUploader').click();
+        }
+
+        // Real-time Upload Image Preview logic before database form submission
+        function previewImage(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profileImageDisplay').src = e.target.result;
+                    document.getElementById('navAvatar').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Reset Profile Image to your specified premium default absolute link
+        document.getElementById('removeImgBtn').addEventListener('click', () => {
+            const defaultPic = "https://i.supaimg.com/d0495ff2-7a2f-426d-a287-7b3b2861a5ee/7d15d7d5-b797-43e5-b7cc-98b57f9a0f00.png";
+            document.getElementById('profileImageDisplay').src = defaultPic;
+            document.getElementById('navAvatar').src = defaultPic;
+            document.getElementById('desktopImageUploader').value = "";
+        });
+</script>
+{% endblock content %}

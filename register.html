@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+{% block content %}
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Capriola&amp;family=SN+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e0e3e5", "inverse-surface": "#213145", "on-tertiary-fixed": "#191c1e",
+                    "on-surface": "#0b1c30", "tertiary-fixed-dim": "#c4c7c9", "on-surface-variant": "#45464d",
+                    "surface-tint": "#565e74", "on-error-container": "#93000a", "on-background": "#0b1c30",
+                    "error-container": "#ffdad6", "primary": "#000000", "tertiary-container": "#191c1e",
+                    "on-secondary-fixed": "#001a42", "on-tertiary-fixed-variant": "#444749", "on-secondary": "#ffffff",
+                    "background": "#f8f9ff", "outline": "#76777d", "on-primary": "#ffffff", "primary-fixed-dim": "#bec6e0",
+                    "surface-bright": "#f8f9ff", "surface-container-high": "#dce9ff", "primary-fixed": "#dae2fd",
+                    "outline-variant": "#c6c6cd", "on-tertiary": "#ffffff", "surface-container": "#e5eeff",
+                    "primary-container": "#131b2e", "on-primary-fixed": "#131b2e", "on-secondary-fixed-variant": "#004395",
+                    "secondary-container": "#2170e4", "surface": "#f8f9ff", "inverse-primary": "#bec6e0",
+                    "surface-container-highest": "#d3e4fe", "on-error": "#ffffff", "surface-variant": "#d3e4fe",
+                    "inverse-on-surface": "#eaf1ff", "surface-dim": "#cbdbf5", "secondary-fixed-dim": "#adc6ff",
+                    "on-primary-container": "#7c839b", "error": "#ba1a1a", "on-secondary-container": "#fefcff",
+                    "surface-container-low": "#eff4ff", "secondary": "#0058be", "on-tertiary-container": "#818486",
+                    "on-primary-fixed-variant": "#3f465c", "tertiary": "#000000", "secondary-fixed": "#d8e2ff",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+            "spacing": { "margin-desktop": "64px", "margin-mobile": "20px", "gutter": "24px", "unit": "4px", "max-width": "1280px", "section-gap": "80px" },
+            "fontFamily": {
+                    "label-md": ["SN Pro"], "body-md": ["SN Pro"], "headline-lg": ["Capriola"], "headline-md": ["Capriola"],
+                    "body-lg": ["SN Pro"], "body-sm": ["SN Pro"], "headline-xl-mobile": ["Capriola"], "label-sm": ["SN Pro"], "headline-xl": ["Capriola"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}], "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}], "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}], "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-xl-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}], "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { background-color: #f8f9ff; -webkit-font-smoothing: antialiased; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+
+<main class="min-h-screen pt-32 pb-20 flex items-center justify-center px-margin-mobile md:px-margin-desktop">
+<div class="w-full max-w-md">
+    <div class="text-center mb-12">
+        <h1 class="text-headline-xl font-headline-xl text-primary mb-4 tracking-tighter">Register</h1>
+        <p class="text-body-md text-on-surface-variant max-w-xs mx-auto">Enter the sanctuary of deep thought.</p>
+    </div>
+
+    <div class="bg-surface-container-lowest border border-outline-variant/40 p-8 md:p-10 rounded-lg shadow-[0_10px_25px_-5px_rgba(0,0,0,0.02)]">
+        <form method="POST" action="" class="space-y-8">
+            {{ form.hidden_tag() }}
+
+            <div class="space-y-2">
+                {{ form.username.label(class="block text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider") }}
+                {% if form.username.errors %}
+                    {{ form.username(class="w-full bg-surface-container-low border border-error px-4 py-3 text-body-md font-body-md text-on-surface focus:border-error focus:ring-0 transition-all duration-300 rounded-sm") }}
+                    <div class="text-error text-body-sm mt-1">
+                        {% for error in form.username.errors %}
+                            <div class="invalid-feedback"><span>{{ error }}</span></div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class="w-full bg-surface-container-low border border-outline-variant px-4 py-3 text-body-md font-body-md text-on-surface focus:border-primary focus:ring-0 transition-all duration-300 rounded-sm", placeholder="Aurore Silence") }}
+                {% endif %}
+            </div>
+
+            <div class="space-y-2">
+                {{ form.email.label(class="block text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider") }}
+                {% if form.email.errors %}
+                    {{ form.email(class="w-full bg-surface-container-low border border-error px-4 py-3 text-body-md font-body-md text-on-surface focus:border-error focus:ring-0 transition-all duration-300 rounded-sm") }}
+                    <div class="text-error text-body-sm mt-1">
+                        {% for error in form.email.errors %}
+                            <div class="invalid-feedback"><span>{{ error }}</span></div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="w-full bg-surface-container-low border border-outline-variant px-4 py-3 text-body-md font-body-md text-on-surface focus:border-primary focus:ring-0 transition-all duration-300 rounded-sm", placeholder="hello@stillness.blog") }}
+                {% endif %}
+            </div>
+
+            <div class="space-y-2">
+                {{ form.password.label(class="block text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider") }}
+                <div class="relative">
+                    {% if form.password.errors %}
+                        {{ form.password(class="w-full bg-surface-container-low border border-error px-4 py-3 text-body-md font-body-md text-on-surface focus:border-error focus:ring-0 transition-all duration-300 rounded-sm", placeholder="••••••••") }}
+                        <div class="text-error text-body-sm mt-1">
+                            {% for error in form.password.errors %}
+                                <div class="invalid-feedback"><span>{{ error }}</span></div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="w-full bg-surface-container-low border border-outline-variant px-4 py-3 text-body-md font-body-md text-on-surface focus:border-primary focus:ring-0 transition-all duration-300 rounded-sm", placeholder="••••••••") }}
+                    {% endif %}
+                    <button id="toggle-password" class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors duration-200" style="font-size: 20px;" type="button">visibility</button>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                {{ form.confirm_password.label(class="block text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider") }}
+                <div class="relative">
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="w-full bg-surface-container-low border border-error px-4 py-3 text-body-md font-body-md text-on-surface focus:border-error focus:ring-0 transition-all duration-300 rounded-sm", placeholder="••••••••") }}
+                        <div class="text-error text-body-sm mt-1">
+                            {% for error in form.confirm_password.errors %}
+                                <div class="invalid-feedback"><span>{{ error }}</span></div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.confirm_password(class="w-full bg-surface-container-low border border-outline-variant px-4 py-3 text-body-md font-body-md text-on-surface focus:border-primary focus:ring-0 transition-all duration-300 rounded-sm", placeholder="••••••••") }}
+                    {% endif %}
+                    <button id="toggle-confirm" class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors duration-200" style="font-size: 20px;" type="button">visibility</button>
+                </div>
+            </div>
+
+            <div class="pt-2">
+                {{ form.submit(class="w-full bg-primary text-on-primary py-4 px-6 text-label-md font-label-md uppercase tracking-[0.1em] hover:bg-on-primary-fixed-variant transition-colors duration-500 rounded-sm cursor-pointer") }}
+            </div>
+        </form>
+        <div class="mt-10 pt-8 border-t border-outline-variant text-center">
+<p class="text-body-sm text-on-surface-variant">
+                        Already have an account? 
+                        <a class="text-primary font-semibold hover:underline decoration-1 underline-offset-4 ml-1" href="{{ url_for('login') }}">Login</a>
+</p>
+</div>
+    </div>
+</div>
+</main>
+{% endblock content %}
